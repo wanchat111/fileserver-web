@@ -1,3 +1,6 @@
+<?php 
+require_once("helper/utility_helper.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +30,11 @@
              <thead>
 
                <th><input type="checkbox" id="checkall" /></th>
-               <th>File Name</th>
-               <th>Date modified</th>
-               <th>Description</th>
+               <th>Name</th>
+               <th>Surname</th>
+               <th>Role</th>
+               <th>Branch</th>
                
-               <th>Open</th>
                <th>Edit</th>
                <th>Delete</th>
              </thead>
@@ -39,24 +42,27 @@
 
               <tr>
                 <td><input type="checkbox" class="checkthis" /></td>
-                <td>fichier1</td>
-                <td>14/01/2017</td>
-                <td>file description1</td>                
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                <td>New</td>
+                <td>Nisarat</td>
+                <td>user</td>  
+                <td>ส่วนกลาง</td>               
+                
+                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onClick="window.location.href='editaccount.php'" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-remove"></span></button></p></td>
               </tr>
 
               <tr>
                 <td><input type="checkbox" class="checkthis" /></td>
-                <td>fichier2</td>
-                <td>14/01/2017</td>
-                <td>file description2</td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+                <td>Tun</td>
+                <td>Wanchat</td>
+                <td>admin</td>  
+                <td>ส่วนกลาง</td>               
+                
+                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onClick="window.location.href='editaccount.php'"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-remove"></span></button></p></td>
               </tr>
 
+              
             </tbody>
 
           </table>
@@ -65,10 +71,10 @@
           <ul class="pagination pull-right">
             <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
             <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
+            <!--<li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <li><a href="#">5</a></li>-->
             <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
           </ul>
 
@@ -78,7 +84,7 @@
     </div>
   </div>
 
-
+<!--
   <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -104,12 +110,12 @@
           <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
         </div>
       </div>
-      <!-- /.modal-content --> 
+      
     </div>
-    <!-- /.modal-dialog --> 
+    
   </div>
 
-
+-->
 
   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog">

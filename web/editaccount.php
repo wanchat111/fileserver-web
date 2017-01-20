@@ -104,7 +104,7 @@
             <div class="col-md-8">
               <input type="button" class="btn btn-primary" value="Save Changes">
               <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
+              <input type="reset" class="btn btn-default" value="Cancel" onClick="window.location.href='accountList.php'">
             </div>
           </div>
         </form>

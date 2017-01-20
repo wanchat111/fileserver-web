@@ -47,7 +47,8 @@
         <input class="form-control" id="dateModify" disabled>
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button><span></span>
+      <button class="btn btn-primary" onClick="window.location.href='index.php'" >Cancel</button>
     </form>
 
     <div id="footer"></div>
