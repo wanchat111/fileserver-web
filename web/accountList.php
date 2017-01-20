@@ -29,7 +29,7 @@ require_once("helper/utility_helper.php");
 
              <thead>
 
-               <th><input type="checkbox" id="checkall" /></th>
+               
                <th>Name</th>
                <th>Surname</th>
                <th>Role</th>
@@ -41,7 +41,7 @@ require_once("helper/utility_helper.php");
              <tbody>
 
               <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
+                
                 <td>New</td>
                 <td>Nisarat</td>
                 <td>user</td>  
@@ -52,7 +52,7 @@ require_once("helper/utility_helper.php");
               </tr>
 
               <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
+                
                 <td>Tun</td>
                 <td>Wanchat</td>
                 <td>admin</td>  

@@ -26,7 +26,7 @@
 
              <thead>
 
-               <th><input type="checkbox" id="checkall" /></th>
+               
                <th>File Name</th>
                <th>Date modified</th>
                <th>Description</th>
@@ -38,7 +38,7 @@
              <tbody>
 
               <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
+                
                 <td>fichier1</td>
                 <td>14/01/2017</td>
                 <td>file description1</td>                
@@ -48,7 +48,7 @@
               </tr>
 
               <tr>
-                <td><input type="checkbox" class="checkthis" /></td>
+                
                 <td>fichier2</td>
                 <td>14/01/2017</td>
                 <td>file description2</td>

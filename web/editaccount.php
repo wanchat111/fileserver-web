@@ -54,51 +54,16 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">role:</label>
-            <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="role" class="form-control">
-                  <option value="admin">admin</option>
-                  <option value="useradmin">useradmin</option>   
-                  <option value="user">user</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-<div class="form-group">
-            <label class="col-lg-3 control-label">branch:</label>
-            <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="branch" class="form-control">
-                  <option value="1">ส่วนกลาง</option>
-                  <option value="2">ทวีรัตน์</option>   
-                  <option value="3">ท่าจีน</option>
-                </select>
-              </div>
-            </div>
-          </div>
+          
 
 
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="janeuser">
-            </div>
-          </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
               <input class="form-control" type="password" value="11111122333">
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
-            </div>
-          </div>
+          
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
