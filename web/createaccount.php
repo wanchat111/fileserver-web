@@ -13,6 +13,8 @@ require_once("helper/utility_helper.php");
 </head>
 <body>
   <div class="container">
+  <div id="header"></div>
+    <div id="menu"></div>
     <h1>Create Account</h1>
     <hr>
     <div class="row">
@@ -120,6 +122,7 @@ require_once("helper/utility_helper.php");
         </form>
       </div>
     </div>
+    <div id="footer"></div>
   </div>
   <hr>
 </body>

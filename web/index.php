@@ -10,15 +10,19 @@
 </head>
 
 <body>
+
   <div class="container">
+
     <div id="header"></div>
+    <div id="menu"></div>
 
     <div class="container">
+    <div >
+      <button type="button" class="btn btn-primary vcenter">Upload</button>
+    </div>
       <div class="row">
-
-
         <div class="col-md-12">
-        <h4>File list</h4>
+        <h4> File list </h4>
           <div class="table-responsive">
 
 
@@ -110,8 +114,6 @@
   </div>
   -->
 
-
-
   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -133,6 +135,8 @@
   </div>
   <!-- /.modal-dialog --> 
 </div>
+
+
 
 <div id="footer"></div>
 </div>

@@ -14,7 +14,7 @@ require_once("helper/utility_helper.php");
 
 <body>
   <div class="container">
-    <div id="header"></div>
+    
     <div id="menu"></div>
 
     <div class="container">

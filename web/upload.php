@@ -13,6 +13,7 @@
   <div class="container">
 
     <div id="header"></div>
+    <div id="menu"></div>
 
     <form>
       <div class="form-group">

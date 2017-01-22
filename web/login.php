@@ -14,6 +14,7 @@
   <div class="container">
 
     <div id="header"></div>
+    <div id="menu"></div>
 
     <div class="row">
       <section class="col-md-12">

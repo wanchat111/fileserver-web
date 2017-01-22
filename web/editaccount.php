@@ -10,6 +10,10 @@
 </head>
 <body>
   <div class="container">
+
+    <div id="header"></div>
+    <div id="menu"></div>
+
     <h1>Edit Profile</h1>
     <hr>
     <div class="row">
@@ -75,6 +79,7 @@
         </form>
       </div>
     </div>
+    <div id="footer"></div>
   </div>
   <hr>
 </body>
