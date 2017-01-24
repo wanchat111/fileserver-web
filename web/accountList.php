@@ -19,7 +19,7 @@ require_once("helper/utility_helper.php");
 
     <div class="container">
     <div >
-      <button type="button" class="btn btn-primary vcenter">Create account</button>
+      <button type="button" class="btn btn-primary vcenter" onClick="window.location.href='createaccount.php'">Create account</button>
     </div>
       <div class="row">
 

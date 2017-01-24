@@ -28,10 +28,12 @@
         <label for="description">Description :</label>
         <textarea class="form-control" id="description" rows="3"></textarea>
       </div>
+      <!--
       <div class="form-group">
         <label for="createBy">Create by :</label>
         <input class="form-control" id="createBy" disabled>
       </div>
+      -->
 
       <div class="form-group">
         <label for="createDate">Create date :</label>

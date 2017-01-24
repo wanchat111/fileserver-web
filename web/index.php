@@ -18,7 +18,7 @@
 
     <div class="container">
     <div >
-      <button type="button" class="btn btn-primary vcenter">Upload</button>
+      <a href="upload.php"><button type="button" class="btn btn-primary vcenter">Upload</button></a>
     </div>
       <div class="row">
         <div class="col-md-12">

@@ -62,8 +62,6 @@ var textfield = $("input[name=user]");
                     $("#output").addClass("alert alert-danger animated fadeInUp").html("sorry enter a username ");
                 }
 
-        } else {
-            window.location.replace("home.html");
         }
 
                 //console.log(textfield.val());
