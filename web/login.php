@@ -1,3 +1,7 @@
+
+<?php
+include_once("helper/utility_helper.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +13,12 @@
   <script type="text/javascript" src="../js/website.js"></script> 
 </head>
 <body>
-
+<form name="login" method="post" action="controller/controller.php">
 
   <div class="container">
 
     <div id="header"></div>
-    <div id="menu"></div>
-
+    
     <div class="row">
       <section class="col-md-12">
 
@@ -24,8 +27,8 @@
           <div class="avatar"></div>
           <div class="form-box">
             <form action="index.php" method="">
-              <input name="user" type="text" placeholder="username">
-              <input type="password" placeholder="password">
+              <input name="username" type="text" placeholder="username">
+              <input name="password" type="password" placeholder="password">
               <button class="btn btn-info btn-block login" type="submit">Login</button>
             </form>
           </div>
@@ -37,5 +40,6 @@
     <div id="footer"></div>
     
   </div>
+  </form>
 </body>
 </html>

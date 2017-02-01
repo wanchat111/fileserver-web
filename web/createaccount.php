@@ -12,6 +12,7 @@ require_once("helper/utility_helper.php");
   <script type="text/javascript" src="../js/website.js"></script> 
 </head>
 <body>
+<form name="login" method="post" action="controller/controller.php">
   <div class="container">
   <div id="header"></div>
     <div id="menu"></div>
@@ -31,11 +32,7 @@ require_once("helper/utility_helper.php");
       
       <!-- Create form column -->
       <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert"> x </a> 
-          <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
-        </div>
+        
         <h3>Account info</h3>
         
         <form class="form-horizontal" role="form">
@@ -114,7 +111,7 @@ require_once("helper/utility_helper.php");
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+              <input type="button" class="btn btn-primary" value="Save">
               <span></span>
               <input type="reset" class="btn btn-default" onClick="window.location.href='accountList.php'" value="Cancel">
             </div>
@@ -125,5 +122,6 @@ require_once("helper/utility_helper.php");
     <div id="footer"></div>
   </div>
   <hr>
+  </form>
 </body>
 </html>
