@@ -12,7 +12,7 @@ require_once("helper/utility_helper.php");
   <script type="text/javascript" src="../js/website.js"></script> 
 </head>
 <body>
-<form name="login" method="post" action="controller/controller.php">
+<form name="login" method="post" action="controller/accountcontroller.php">
   <div class="container">
   <div id="header"></div>
     <div id="menu"></div>
@@ -39,20 +39,20 @@ require_once("helper/utility_helper.php");
           <div class="form-group">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="Jane">
+              <input class="form-control" type="text" name="firstname">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="Bishop">
+              <input class="form-control" type="text" name="lastname">
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="janesemail@gmail.com">
+              <input class="form-control" type="text" name="email">
             </div>
           </div>
 
@@ -60,10 +60,10 @@ require_once("helper/utility_helper.php");
             <label class="col-lg-3 control-label">role:</label>
             <div class="col-lg-8">
               <div class="ui-select">
-                <select id="role" class="form-control">
-                  <option value="1">admin</option>
-                  <option value="2">useradmin</option>   
-                  <option value="3">user</option>
+                <select id="role" class="form-control" name="role">
+                  <option value="admin">admin</option>
+                  <option value="useradmin">useradmin</option>   
+                  <option value="user">user</option>
                 </select>
               </div>
             </div>
@@ -73,7 +73,7 @@ require_once("helper/utility_helper.php");
             <label class="col-lg-3 control-label">branch:</label>
             <div class="col-lg-8">
               <div class="ui-select">
-                <select id="branch" class="form-control">
+                <select id="branch" class="form-control" name="branch">
                   <option value="1">ส่วนกลาง</option>
                   <option value="2">ทวีรัตน์</option>   
                   <option value="3">ท่าจีน</option>
@@ -93,19 +93,19 @@ require_once("helper/utility_helper.php");
           <div class="form-group">
             <label class="col-md-3 control-label">Username:</label>
             <div class="col-md-8">
-              <input class="form-control" type="text" value="janeuser">
+              <input class="form-control" type="text" name="username">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" type="password" name="password">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" type="password" name="passwordcheck">
             </div>
           </div>
           <div class="form-group">
