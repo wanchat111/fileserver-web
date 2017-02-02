@@ -89,7 +89,7 @@ ini_set('upload_max_filesize', '20M');
 			$header='Content-Type: application/json';
 		}
 
-		//echo $url; die();
+		echo $_COOKIE['username'] .'   |  '. $_COOKIE['token'];
 	
 		$ch=curl_init($url);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -102,10 +102,13 @@ ini_set('upload_max_filesize', '20M');
 		'Content-Length: ' . strlen($post_data),
 		"Authentication: {$_COOKIE['username']};{$_COOKIE['token']}"
 		));
-	
+
 		$xmlResponse=curl_exec($ch);
 
-		//echo $xmlResponse; die();
+	// echo "<pre>";
+	// print_r(curl_getinfo($ch));
+	// echo "</pre>";
+ // 	die();
 	
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		

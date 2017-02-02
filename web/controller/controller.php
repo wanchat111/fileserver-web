@@ -62,9 +62,12 @@ function index() {
 	exit();
 }
 function logout() {
-	$url=API_URL.'surachit/fileserver/signout';
+	$url=API_URL.'surachit/fileserver/signout/'.$_COOKIE["username"].'/'.$_COOKIE["token"];
+
 	//echo $url; die();
-	postapi($url);
+	getapi($url);
+	//die();
+
 	setcookie('username', '', time() - (3600*24), '/');
 	setcookie('token', '', time() - (3600*24), '/');
 	setcookie('rolename', '', time() - (3600*24), '/');
