@@ -69,7 +69,7 @@ require_once("helper/utility_helper.php");
             </div>
           </div>
 
-<div class="form-group">
+          <div class="form-group">
             <label class="col-lg-3 control-label">branch:</label>
             <div class="col-lg-8">
               <div class="ui-select">
@@ -106,12 +106,13 @@ require_once("helper/utility_helper.php");
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
               <input class="form-control" type="password" name="passwordcheck">
+              <input type="hidden" name="create" value = "create">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save">
+              <input type="submit" class="btn btn-primary" value="Save">
               <span></span>
               <input type="reset" class="btn btn-default" onClick="window.location.href='accountList.php'" value="Cancel">
             </div>
