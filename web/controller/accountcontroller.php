@@ -1,5 +1,7 @@
 <?php
 error_reporting( error_reporting() & ~E_NOTICE );
+require_once("../helper/utility_helper.php");
+require_once("../config/constants.php");
 //echo $_POST["username"];
 // echo $_POST['firstname'];
 // echo $_POST['lastname'];
@@ -47,9 +49,9 @@ function createaccount() {
 	$data_string=json_encode($data_array);
 	
 
-		echo "<pre>"; print_r($data_string); echo "</pre>"; die();
+		//echo "<pre>"; print_r($data_string); echo "</pre>"; die();
 
-	$feed=API_URL.'push-ad/1.0/account';
+	$feed=API_URL.'surachit/fileserver/account';
 
 	
 	$result_data=postapi($feed,$data_string);

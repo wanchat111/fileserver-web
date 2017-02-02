@@ -17,10 +17,12 @@
                         <li class="active"><a href="accountList.php" class="">Accounts</a></li>
                         <li class="active"><a href="index.php" class="">Upload</a></li>
                     </ul>
+                    <form name="logout" method="post" action="controller/controller.php">
                     <ul class="nav navbar-nav pull-right">
                         <li class="active"><a class="">User</a></li>
-                        <li class=""><a href="#">Logout</a></li>
+                        <li class=""><input type="hidden" name="logout" value="logout"><a href="#" onclick="$(this).closest('form').submit()">Logout</a></li>
                     </ul>
+                    </form>
                 </div>
             </div>
         </nav>

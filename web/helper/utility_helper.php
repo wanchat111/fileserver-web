@@ -88,6 +88,8 @@ ini_set('upload_max_filesize', '20M');
 		if($header==NULL){
 			$header='Content-Type: application/json';
 		}
+
+		//echo $url; die();
 	
 		$ch=curl_init($url);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -102,9 +104,11 @@ ini_set('upload_max_filesize', '20M');
 		));
 	
 		$xmlResponse=curl_exec($ch);
+
+		//echo $xmlResponse; die();
 	
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	
+		
 		curl_close($ch);
 
 		$xmlResponse = addHttpCode($xmlResponse, $httpcode);
@@ -263,6 +267,8 @@ ini_set('upload_max_filesize', '20M');
 	}
 
 	function addHttpCode($xmlResponse, $httpcode){
+		//print_r($xmlResponse);
+		//echo $xmlResponse;
 		$xmlResponse = json_decode($xmlResponse);
 		$xmlResponse->status->httpCode = $httpcode;
 

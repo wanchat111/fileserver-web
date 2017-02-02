@@ -114,7 +114,7 @@ require_once("helper/utility_helper.php");
             <div class="col-md-8">
               <input type="submit" class="btn btn-primary" value="Save">
               <span></span>
-              <input type="reset" class="btn btn-primary" onClick="window.location.href='accountList.php'" value="Cancel">
+              <input type="reset" class="btn btn-primary" onclick="document.forms['myFormName'].submit(); return false;" value="Cancel">
             </div>
           </div>
         </form>

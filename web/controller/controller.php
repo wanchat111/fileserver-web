@@ -1,18 +1,29 @@
 <?php
 //echo $_POST["username"];
 //echo "666";
-
+require_once("../config/constants.php");
+require_once("../helper/utility_helper.php");
+error_reporting( error_reporting() & ~E_NOTICE );
 if($_POST['username'] != "" && $_POST['password'] != ""){
 	index();
 }
 
+if ($_POST['logout'] != "")
+    {
+        //echo "ddd"; die();
+        logout();
+    }
+
+
+
 function index() {
 	
-	echo $_POST['username'];
-	echo $_POST['password'];
+	//echo $_POST['username'];
+	//echo $_POST['password'];
 	
 	if(@$_POST['username'] && @$_POST['password']){
 		$url=API_URL.'surachit/fileserver/signin';
+		//echo $url;
 		$curl=curl_init($url);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -24,18 +35,22 @@ function index() {
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 		$curl_response=curl_exec($curl);
 		$data_obj = json_decode($curl_response);
+		print_r($data_obj);
 		$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 		curl_close($curl);
 
-		if($httpcode == "401"){
-			redirect('login?message=An active session for this user already exists', 'refresh');
-		}
+		// if($httpcode == "401"){
+		// 	redirect('login?message=An active session for this user already exists', 'refresh');
+		// }
 
 		$token = $data_obj->{'token'};
 
 		if($token){
-			$roleName = $this->getRoleName($_POST['username'], trim($token));
+			echo "777";
+			echo $_POST['username'];
+			echo $token;
+			$roleName = getRoleName($_POST['username'], trim($token));
 
 			setcookie('username', $_POST['username'], time() + (3600*24), '/');
 			setcookie('token', trim($token), time() + (3600*24), '/');
@@ -48,6 +63,7 @@ function index() {
 }
 function logout() {
 	$url=API_URL.'surachit/fileserver/signout';
+	//echo $url; die();
 	postapi($url);
 	setcookie('username', '', time() - (3600*24), '/');
 	setcookie('token', '', time() - (3600*24), '/');
@@ -67,8 +83,8 @@ function profile() {
 * @author : lennon
 */
 function getRoleName($username, $token) {
-	$url = API_URL.'/surachit/fileserver/account?name='.$username;
-
+	$url = API_URL.'surachit/fileserver/account/'.$username;
+    echo "\n".$url."\n";
 	$ch=curl_init($url);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -77,6 +93,7 @@ function getRoleName($username, $token) {
 	$curl_response=curl_exec($ch);
 
 	$data_obj = json_decode($curl_response);
+	//print_r($data_obj); die();
 	curl_close($ch);
 
 // console($data_obj, true);
