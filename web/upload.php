@@ -35,23 +35,9 @@
       </div>
       -->
 
-      <div class="form-group">
-        <label for="createDate">Create date :</label>
-        <input type="text" class="form-control" id="createDate" disabled>
-      </div> 
-
-      <div class="form-group">
-        <label for="lastModify">Last modify :</label>
-        <input class="form-control" id="lastModify" disabled>
-      </div>
-
-      <div class="form-group">
-        <label for="dateModify">Date modify:</label>
-        <input class="form-control" id="dateModify" disabled>
-      </div>
-
       <button type="submit" class="btn btn-primary">Submit</button><span></span>
-      <button class="btn btn-primary" onClick="window.location.href='index.php'" >Cancel</button>
+      
+      <input type="reset" class="btn btn-primary" onClick="window.location.href='accountList.php'" value="Cancel">
     </form>
 
     <div id="footer"></div>
