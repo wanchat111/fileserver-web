@@ -75,7 +75,9 @@ ini_set('upload_max_filesize', '20M');
 
 		curl_close($ch);
 
-		$xmlResponse = addHttpCode($xmlResponse, $httpcode);
+		// $xmlResponse = addHttpCode($xmlResponse, $httpcode);
+
+// echo "<pre>"; echo $httpcode;  echo "</pre>"; die();
 
 		return 	 $xmlResponse;
 	}
@@ -193,14 +195,17 @@ ini_set('upload_max_filesize', '20M');
 		'Content-Length: ' . strlen($post_data),
 		"Authentication: {$_COOKIE['username']};{$_COOKIE['token']}"
 		));
-	
+		//echo "<pre>"; print_r($ch);  echo "</pre>"; die();
+
 		$xmlResponse = curl_exec($ch);
+		echo "<pre>"; echo $xmlResponse;  echo "</pre>"; die();
 
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	
 		curl_close($ch);
 
-		$xmlResponse = addHttpCode($xmlResponse, $httpcode);
+
+		//$xmlResponse = addHttpCode($xmlResponse, $httpcode);
 	
 		return $xmlResponse;
 	}

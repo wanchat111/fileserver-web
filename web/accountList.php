@@ -1,5 +1,17 @@
 <?php 
+error_reporting( error_reporting() & ~E_NOTICE );
 require_once("helper/utility_helper.php");
+require_once("config/constants.php");
+
+    $feed=API_URL.'surachit/fileserver/accounts';
+    //echo $feed; die();
+    $data_obj=json_decode(getapi($feed,TRUE));
+    $data = $data_obj->data;
+
+   // echo "<pre>"; echo print_r($data);  echo "</pre>";
+
+    //print_r($object_obj); die();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,35 +49,56 @@ require_once("helper/utility_helper.php");
                <th>Name</th>
                <th>Surname</th>
                <th>Role</th>
-               <th>Branch</th>
+               <th>Email</th>
                
                <th>Edit</th>
                <th>Delete</th>
              </thead>
              <tbody>
+              <?php
+                foreach($data as $row) {
+              ?>
 
               <tr>
                 
-                <td>New</td>
-                <td>Nisarat</td>
-                <td>user</td>  
-                <td>ส่วนกลาง</td>               
+                <td><?php echo $row->name;?></td>
+                <td><?php echo $row->surname;?></td>
+                <td><?php echo $row->roleName;?></td>  
+                <td><?php 
+                $role = $row->branchId;
+                $rolename="";
+                //echo $role;
+                if($role==1){
+
+                  $rolename = 'ส่วนกลาง';
+                } if($role==2){
+                  $rolename = 'ทวีรัตน์';
+                } if($role==3){
+                  $rolename = 'ท่าจีน';
+                } if($role==4){
+                  $rolename = 'บ้านคลองนกกระทุง';
+                } if($role==5){
+                  $rolename = 'เผยอิง';
+                } if($role==6){
+                  $rolename = 'ศิริพงศ์วิทยา';
+                } if($role==7){
+                  $rolename = 'สมานคุณ';
+                } if($role==8){
+                  $rolename = 'อนุบาลธิดาเมตตาธรรม';
+                }
+
+                echo $rolename;
+                ?></td>               
                 
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onClick="window.location.href='editaccount.php'" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onClick="window.location.href='editaccount.php?username=<?php echo $row->userName;?>'" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
                 <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-remove"></span></button></p></td>
               </tr>
 
-              <tr>
-                
-                <td>Tun</td>
-                <td>Wanchat</td>
-                <td>admin</td>  
-                <td>ส่วนกลาง</td>               
-                
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onClick="window.location.href='editaccount.php'"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-remove"></span></button></p></td>
-              </tr>
-
+             
+              <?php
+              
+              }
+              ?>
               
             </tbody>
 

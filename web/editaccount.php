@@ -1,3 +1,17 @@
+<?php 
+error_reporting( error_reporting() & ~E_NOTICE );
+$username = $_GET['username'];
+require_once("helper/utility_helper.php");
+require_once("config/constants.php");
+
+    $feed=API_URL.'surachit/fileserver/account/'.$username;
+//    echo $feed; die();
+    $data_obj=json_decode(getapi($feed,TRUE));
+    $data = $data_obj->data;
+
+  //  echo "<pre>"; echo print_r($data);  echo "</pre>";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,20 +52,20 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="updatename" value="Jane">
+              <input class="form-control" type="text" name="updatename" value="<?php echo $data->name; ?>">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="updatelastname" value="Bishop">
+              <input class="form-control" type="text" name="updatelastname" value="<?php echo $data->name; ?>">
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="updateemail" value="janesemail@gmail.com">
+              <input class="form-control" type="text" name="updateemail" value="<?php echo $data->email; ?>">
             </div>
           </div>
 
@@ -59,9 +73,10 @@
 
 
           <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
+            <!--<label class="col-md-3 control-label">Password:</label>-->
             <div class="col-md-8">
-              <input class="form-control" type="password" name="updatepassword" value="11111122333">
+              <input class="form-control" type="hidden" name="updatepassword" value="<?php echo $data->password; ?>">
+              <input class="form-control" type="hidden" name="username" value="<?php echo $data->userName; ?>">
               <input class="form-control" type="hidden" name="update" value="update">
               
             </div>

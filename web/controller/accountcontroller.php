@@ -15,10 +15,10 @@ if($_POST['create'] != ""){
 	createaccount();
 }
 
-echo $_POST['updatename'];
-echo $_POST['updatelastname'];
-echo $_POST['updateemail'];
-echo $_POST['updatepassword'];
+//echo $_POST['updatename'];
+//echo $_POST['updatelastname'];
+//echo $_POST['updateemail'];
+//echo $_POST['updatepassword'];
 
 if($_POST['update'] != ""){
 	editaccount();
@@ -61,6 +61,8 @@ function createaccount() {
 			//console($data_obj);
 			//redirect('advertisement/settings', 'refresh');
 		$datamessage = $data_obj->status->code;
+		header('location: http://localhost/fileserver/web/accountlist.php');
+		exit();
 	}
 	else{
 			//console($data_obj);
@@ -72,6 +74,7 @@ function createaccount() {
 		/*$data['userinfo'] = $arrUserInfo;
 		$data['page_view']='advertisement/adduser';
 		$this->load->view('layouts/default', $datamessage);*/
+		
 	}
 
 	function deleteuser($userName=NULL) {
@@ -117,8 +120,8 @@ function createaccount() {
 		$email = $_POST['updateemail'];
 		$password = $_POST['updatepassword'];
 
-		$feed=API_URL.'push-ad/1.0/account/'.$_POST['userName'];
-
+		$feed=API_URL.'surachit/fileserver/'.$_POST['username'];
+		//echo $feed; die();
 		$arrUserInfo=array(
 			'name' => $firstname,
 			'surname' => $lastname,
@@ -127,37 +130,39 @@ function createaccount() {
 			);
 
 		$data_string=json_encode($arrUserInfo);
-		echo "<pre>"; print_r($data_string); echo "</pre>"; die();
+		//echo "<pre>"; print_r($data_string); echo "</pre>"; die();
 		$result_data=putapi($feed,$data_string);
 		$data_obj=json_decode($result_data);
 
-		console($data_obj);
+		//console($data_obj);
+		header('location: http://localhost/fileserver/web/accountlist.php');
+		exit();
 
-		### pagination ###
-		$page=(!@$page)?1:$page;
-		$limit=10;
-		### pagination ###
+		// ### pagination ###
+		// $page=(!@$page)?1:$page;
+		// $limit=10;
+		// ### pagination ###
 		
-		$feed=API_URL.'push-ad/1.0/accounts/?limit='.$limit.'&page='.$page;
-		//$feed=API_URL.'push-ad/1.0/advert-setups?limit='.$limit.'&page='.$page;
-		$data_obj=json_decode(getapi($feed,TRUE));
+		// $feed=API_URL.'push-ad/1.0/accounts/?limit='.$limit.'&page='.$page;
+		// //$feed=API_URL.'push-ad/1.0/advert-setups?limit='.$limit.'&page='.$page;
+		// $data_obj=json_decode(getapi($feed,TRUE));
 
-		### pagination ###
-		$total=(@$data_obj->pagination->grandTotal)?$data_obj->pagination->grandTotal:0;
-		if($total%$limit)
-			$total_page=floor($total/$limit)+1;
-		else
-			$total_page=floor($total/$limit);
+		// ### pagination ###
+		// $total=(@$data_obj->pagination->grandTotal)?$data_obj->pagination->grandTotal:0;
+		// if($total%$limit)
+		// 	$total_page=floor($total/$limit)+1;
+		// else
+		// 	$total_page=floor($total/$limit);
 		
-		$data['total']=$total;
-		$data['total_page']=$total_page;
-		$data['page']=$page;
-		$data['limit']=$limit;
-		### pagination ###
+		// $data['total']=$total;
+		// $data['total_page']=$total_page;
+		// $data['page']=$page;
+		// $data['limit']=$limit;
+		// ### pagination ###
 
-		$data['result']=$data_obj->data;
-		$data['page_view']='advertisement/settings';
-		$this->load->view('layouts/default', $data);
+		// $data['result']=$data_obj->data;
+		// $data['page_view']='advertisement/settings';
+		// $this->load->view('layouts/default', $data);
 	}
 
 
