@@ -165,7 +165,9 @@ ini_set('upload_max_filesize', '20M');
 	    //curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);  
 	    curl_setopt($ch, CURLOPT_TIMEOUT, 100);
 	    //curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
-	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+	    // curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+
 	    curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
 
 	    $result = curl_exec ($ch);
@@ -198,7 +200,7 @@ ini_set('upload_max_filesize', '20M');
 		//echo "<pre>"; print_r($ch);  echo "</pre>"; die();
 
 		$xmlResponse = curl_exec($ch);
-		echo "<pre>"; echo $xmlResponse;  echo "</pre>"; die();
+		//echo "<pre>"; echo $xmlResponse;  echo "</pre>"; die();
 
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	

@@ -17,6 +17,8 @@ require_once("../config/constants.php");
 	// private Date dateModify;
 	// private String filePath;
 	// private String fileName;
+echo "5555";
+echo $_FILES['file']['type']; die();
 		$upload = $_POST['uploadvalue'];
 		$userName = $_POST['name'];
 		$description = $_POST['description'];
@@ -31,6 +33,11 @@ require_once("../config/constants.php");
 			'email' => $email,
 			'password' => $password
 			);
+		$data_array = array(
+			'uploadDto' => $arrUserInfo//,
+			//'file' =>
+			);
+		
 		
 		$feed=API_URL.'surachit/fileserver/upload';
 

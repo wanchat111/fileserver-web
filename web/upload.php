@@ -15,10 +15,10 @@
     <div id="header"></div>
     <div id="menu"></div>
 
-    <form name="upload" method="post" action="controller/uploadcontroller.php">
+    <form name="upload" enctype="multipart/form-data" method="post" action="controller/uploadcontroller.php">
       <div class="form-group">
         <label for="inputFile">File input :</label>
-        <input type="file" class="form-control-file" id="inputFile">
+        <input type="file" class="form-control-file" id="file" name="file">
       </div>
       <div class="form-group">
         <label for="fileName">File name :</label>

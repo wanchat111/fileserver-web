@@ -58,7 +58,7 @@ require_once("config/constants.php");
           <div class="form-group">
             <label class="col-lg-3 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="updatelastname" value="<?php echo $data->name; ?>">
+              <input class="form-control" type="text" name="updatelastname" value="<?php echo $data->surname; ?>">
             </div>
           </div>
           

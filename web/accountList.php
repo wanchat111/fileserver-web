@@ -3,12 +3,12 @@ error_reporting( error_reporting() & ~E_NOTICE );
 require_once("helper/utility_helper.php");
 require_once("config/constants.php");
 
-    $feed=API_URL.'surachit/fileserver/accounts';
+$feed=API_URL.'surachit/fileserver/accounts';
     //echo $feed; die();
-    $data_obj=json_decode(getapi($feed,TRUE));
-    $data = $data_obj->data;
+$data_obj=json_decode(getapi($feed,TRUE));
+$data = $data_obj->data;
 
-   // echo "<pre>"; echo print_r($data);  echo "</pre>";
+    // echo "<pre>"; echo print_r($data);  echo "</pre>";
 
     //print_r($object_obj); die();
 
@@ -30,14 +30,14 @@ require_once("config/constants.php");
     <div id="menu"></div>
 
     <div class="container">
-    <div >
-      <button type="button" class="btn btn-primary vcenter" onClick="window.location.href='createaccount.php'">Create account</button>
-    </div>
+      <div >
+        <button type="button" class="btn btn-primary vcenter" onClick="window.location.href='createaccount.php'">Create account</button>
+      </div>
       <div class="row">
 
 
         <div class="col-md-12">
-        <h4>File list</h4>
+          <h4>File list</h4>
           <div class="table-responsive">
 
 
@@ -45,7 +45,7 @@ require_once("config/constants.php");
 
              <thead>
 
-               
+
                <th>Name</th>
                <th>Surname</th>
                <th>Role</th>
@@ -56,47 +56,69 @@ require_once("config/constants.php");
              </thead>
              <tbody>
               <?php
-                foreach($data as $row) {
-              ?>
+              foreach($data as $row) {
+                ?>
 
-              <tr>
-                
-                <td><?php echo $row->name;?></td>
-                <td><?php echo $row->surname;?></td>
-                <td><?php echo $row->roleName;?></td>  
-                <td><?php 
-                $role = $row->branchId;
-                $rolename="";
+                <tr>
+
+                  <td><?php echo $row->name;?></td>
+                  <td><?php echo $row->surname;?></td>
+                  <td><?php echo $row->roleName;?></td>  
+                  <td><?php 
+                    $role = $row->branchId;
+                    $rolename="";
                 //echo $role;
-                if($role==1){
+                    if($role==1){
 
-                  $rolename = 'ส่วนกลาง';
-                } if($role==2){
-                  $rolename = 'ทวีรัตน์';
-                } if($role==3){
-                  $rolename = 'ท่าจีน';
-                } if($role==4){
-                  $rolename = 'บ้านคลองนกกระทุง';
-                } if($role==5){
-                  $rolename = 'เผยอิง';
-                } if($role==6){
-                  $rolename = 'ศิริพงศ์วิทยา';
-                } if($role==7){
-                  $rolename = 'สมานคุณ';
-                } if($role==8){
-                  $rolename = 'อนุบาลธิดาเมตตาธรรม';
-                }
+                      $rolename = 'ส่วนกลาง';
+                    } if($role==2){
+                      $rolename = 'ทวีรัตน์';
+                    } if($role==3){
+                      $rolename = 'ท่าจีน';
+                    } if($role==4){
+                      $rolename = 'บ้านคลองนกกระทุง';
+                    } if($role==5){
+                      $rolename = 'เผยอิง';
+                    } if($role==6){
+                      $rolename = 'ศิริพงศ์วิทยา';
+                    } if($role==7){
+                      $rolename = 'สมานคุณ';
+                    } if($role==8){
+                      $rolename = 'อนุบาลธิดาเมตตาธรรม';
+                    }
 
-                echo $rolename;
-                ?></td>               
-                
-                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onClick="window.location.href='editaccount.php?username=<?php echo $row->userName;?>'" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-remove"></span></button></p></td>
-              </tr>
+                    echo $rolename;
+                    ?></td>               
 
-             
-              <?php
-              
+                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" onClick="window.location.href='editaccount.php?username=<?php echo $row->userName;?>'" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"  ><span class="glyphicon glyphicon-remove"></span></button></p></td>
+                  </tr>
+
+                  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                          <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                        </div>
+                        <div class="modal-body">
+
+                         <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+
+                       </div>
+                       <div class="modal-footer ">
+                       <button type="button" class="btn btn-success" onClick="window.location.href='controller/deletecontroller.php?username=<?php echo $row->userName;?>'"><span class="glyphicon glyphicon-ok-sign" ></span> Yes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content --> 
+
+                  </div>
+                  <!-- /.modal-dialog --> 
+
+                </div>
+                <?php
+
               }
               ?>
               
@@ -154,7 +176,7 @@ require_once("config/constants.php");
 
 -->
 
-  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+ <!-- <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -172,9 +194,12 @@ require_once("config/constants.php");
       </div>
     </div>
     <!-- /.modal-content --> 
+    <!--
   </div>
   <!-- /.modal-dialog --> 
+  <!--
 </div>
+-->
 
 <div id="footer"></div>
 </div>

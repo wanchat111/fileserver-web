@@ -120,7 +120,8 @@ function createaccount() {
 		$email = $_POST['updateemail'];
 		$password = $_POST['updatepassword'];
 
-		$feed=API_URL.'surachit/fileserver/'.$_POST['username'];
+
+		$feed=API_URL.'surachit/fileserver/account/'.$_POST['username'];
 		//echo $feed; die();
 		$arrUserInfo=array(
 			'name' => $firstname,
@@ -131,38 +132,36 @@ function createaccount() {
 
 		$data_string=json_encode($arrUserInfo);
 		//echo "<pre>"; print_r($data_string); echo "</pre>"; die();
+
+
 		$result_data=putapi($feed,$data_string);
+
 		$data_obj=json_decode($result_data);
 
+		// echo "<pre>";
+		// print_r($data_obj);
+		// echo "</pre>";
+		// die();
+
+		// print_r($result_data); die();
 		//console($data_obj);
-		header('location: http://localhost/fileserver/web/accountlist.php');
+		// header('location: http://localhost/fileserver/web/accountlist.php');
+		// exit();
+		//echo "sssss";
+		if($data_obj->status->code =='Success'){
+			//echo '<script> alert(" '.$data_obj->status->code.' "); </script>';
+			//echo "::::::";
+			header('location: http://localhost/fileserver/web/accountList.php');
 		exit();
+		//echo "-------";
+		}
+		else{
+			//echo '<script> alert(" '.$data_obj->status->message.' "); </script>';
+		}
 
-		// ### pagination ###
-		// $page=(!@$page)?1:$page;
-		// $limit=10;
-		// ### pagination ###
+	
+	
 		
-		// $feed=API_URL.'push-ad/1.0/accounts/?limit='.$limit.'&page='.$page;
-		// //$feed=API_URL.'push-ad/1.0/advert-setups?limit='.$limit.'&page='.$page;
-		// $data_obj=json_decode(getapi($feed,TRUE));
-
-		// ### pagination ###
-		// $total=(@$data_obj->pagination->grandTotal)?$data_obj->pagination->grandTotal:0;
-		// if($total%$limit)
-		// 	$total_page=floor($total/$limit)+1;
-		// else
-		// 	$total_page=floor($total/$limit);
-		
-		// $data['total']=$total;
-		// $data['total_page']=$total_page;
-		// $data['page']=$page;
-		// $data['limit']=$limit;
-		// ### pagination ###
-
-		// $data['result']=$data_obj->data;
-		// $data['page_view']='advertisement/settings';
-		// $this->load->view('layouts/default', $data);
 	}
 
 

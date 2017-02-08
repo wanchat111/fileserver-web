@@ -46,7 +46,7 @@ require_once("config/constants.php");
 
                
                <th>File Name</th>
-               <th>Date modified</th>
+               <th>Create By</th>
                <th>Description</th>
                
                <th>Download</th>
@@ -62,7 +62,7 @@ require_once("config/constants.php");
                 
                 <td><?php echo $row->file->fileName;?></td>
 
-                <td><?php echo $row->dateModify;?></td>
+                <td><?php echo $row->username;?></td>
 
                 
                 
