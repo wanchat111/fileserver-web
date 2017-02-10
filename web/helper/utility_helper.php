@@ -137,11 +137,27 @@ ini_set('upload_max_filesize', '20M');
 	   return $value;
 	}
 
-	function uploadapi($url=NULL, $post_data=NULL,$filesize){
+	function uploadapi($url=NULL, $post_data=NULL){
 		if(!$url){
 			return false;
 		}
 		$data_string=json_encode($post_data);
+		//echo $data_string['file']['postname']; die();
+		//echo $data_string; die();
+		//$fileName = $post_data['uploadDto']['fileName'];
+		// $param = "--Boundary\r\n"
+		// ."Content-Type: application/json\r\n"
+		// ."Content-Disposition: form-dara\r\n" 
+		// ."name='uploadDto'\r\n"
+		// ."\r\n"
+		// .$post_data['uploadDto']."\r\n"
+
+		// ."--Boundary\r\n"
+		// ."Content-Type: application/pdf\r\n"
+		// ."Content-Disposition: form-dara; name='file'; filename='".$fileName."'\r\n"
+
+		// ."--Boundary--\r\n";
+		
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -154,6 +170,13 @@ ini_set('upload_max_filesize', '20M');
 	    curl_setopt($ch, CURLOPT_HTTPHEADER,
 	    	array(
 	    	"Content-Type: multipart/form-data",
+	    	//"boundary: Bounddary",
+
+
+	    	//"Content-Disposition: form-data",
+	    	//"name='uploadDto'",
+	    	//"type=application/json",
+
 	  //   	"Accept-Encoding: ",
 			// "Content-Length: ". $filesize,
 			// "Content-Transfer-Encoding: binary",
@@ -166,18 +189,20 @@ ini_set('upload_max_filesize', '20M');
 	    curl_setopt($ch, CURLOPT_TIMEOUT, 100);
 	    //curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
 	    // curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-	    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+	    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 
 	    curl_setopt( $ch, CURLOPT_AUTOREFERER, true );
-
+	    //print_r(curl_getinfo($ch));
+	    print_r(curl_error($ch));
 	    $result = curl_exec ($ch);
-	    if ($result === FALSE) {
-	        echo "Error sending" . $fname .  " " . curl_error($ch);
-	        curl_close ($ch);
-	    }else{
-	        curl_close ($ch);
-	        //echo  "Result: " . $result;
-	    }
+
+	    // if ($result === FALSE) {
+	    //     echo "Error sending" . $fname .  " " . curl_error($ch);
+	    //     curl_close ($ch);
+	    // }else{
+	    //     curl_close ($ch);
+	    //     //echo  "Result: " . $result;
+	    // }
 
 	    return $result;
 	}

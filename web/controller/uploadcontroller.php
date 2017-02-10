@@ -17,32 +17,50 @@ require_once("../config/constants.php");
 	// private Date dateModify;
 	// private String filePath;
 	// private String fileName;
-echo "5555";
-echo $_FILES['file']['type']; die();
+//echo "5555";
+//echo $_FILES['file']['name']; die();
+//echo $_FILES['file']['type']; die();
+$tmpfile = $_FILES['file']['tmp_name'];
+$filename = basename($_FILES['file']['name']);
+
+
+
+// $data = array(
+//     'uploaded_file' => '@'.$tmpfile.';filename='.$filename,
+// );
 		$upload = $_POST['uploadvalue'];
-		$userName = $_POST['name'];
+		$userName = $_COOKIE['username'];
 		$description = $_POST['description'];
 		$createBy = $_COOKIE['username'];
 		$createDate= date("Y-m-d");
+		$filepath = $_POST['folder'];
+		$filename = $_FILES['file']['name'];
+
 
 		//echo $id; die();
 		
 		$arrUserInfo=array(
 			'userName' => $userName,
 			'description' => $description,
-			'email' => $email,
-			'password' => $password
+			'createBy' => $userName,
+			'createDate' => $createDate,
+			'fileName' => $filename,
+			'filePath' => $filepath
 			);
+		$jsonSrting = json_encode($arrUserInfo);
+		//echo $jsonSrting; die();
 		$data_array = array(
-			'uploadDto' => $arrUserInfo//,
-			//'file' =>
+			// 'uploadDto' => '{"userName":"wanchat","description":"dash;dkas;","createBy":"wanchat","createDate":"2017-02-10","fileName":"day_01.pdf","filePath":"costs"}',
+			'uploadDto' => $jsonSrting,
+			'file' => curl_file_create($tmpfile, $_FILES['file']['type'], $filename)
+
 			);
 		
 		
 		$feed=API_URL.'surachit/fileserver/upload';
 
 		//echo $feed; die();
-		$result_data=uploadapi($feed,$data_array,$filesize);
+		$result_data=uploadapi($feed,$data_array);
 		
 		$data_obj=json_decode($result_data);
 				//console($data_obj,true);
